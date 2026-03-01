@@ -55,13 +55,13 @@ resource "terraform_data" "validate_config_schema" {
     }
 
     precondition {
-      condition     = can(local.config.global_modules.enable_scc_standard) && can(local.config.global_modules.enable_iap_access) && can(local.config.global_modules.enable_cloud_nat) && can(local.config.global_modules.enable_hybrid_connectivity)
-      error_message = "config.yaml: global_modules must include enable_scc_standard, enable_iap_access, enable_cloud_nat, and enable_hybrid_connectivity."
+      condition     = can(local.config.global_modules.enable_scc_standard) && can(local.config.global_modules.enable_iap_access) && can(local.config.global_modules.enable_cloud_nat) && can(local.config.global_modules.enable_hybrid_connectivity) && can(local.config.global_modules.enable_central_logging) && can(local.config.global_modules.enable_private_service_connect) && can(local.config.global_modules.enable_secret_manager)
+      error_message = "config.yaml: global_modules must include enable_scc_standard, enable_iap_access, enable_cloud_nat, enable_hybrid_connectivity, enable_central_logging, enable_private_service_connect, and enable_secret_manager."
     }
 
     precondition {
-      condition     = can(local.config.advanced_modules.enable_centralized_ingress)
-      error_message = "config.yaml: advanced_modules.enable_centralized_ingress is required for ingress auto-correction."
+      condition     = can(local.config.advanced_modules.enable_centralized_ingress) && can(local.config.advanced_modules.enable_egress_inspection)
+      error_message = "config.yaml: advanced_modules must include enable_centralized_ingress and enable_egress_inspection."
     }
 
     precondition {

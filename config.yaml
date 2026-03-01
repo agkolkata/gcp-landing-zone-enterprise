@@ -2,14 +2,21 @@ organization_id: "YOUR_ORG_ID"
 billing_account: "YOUR_BILLING_ID"
 default_region: "us-central1"
 
+# ✅ FREE TIER MODULES - No additional charges
 global_modules:
-  enable_scc_standard: true # Free tier security
-  enable_iap_access: true # Free Zero Trust SSH
-  enable_cloud_nat: false # Chargeable
-  enable_hybrid_connectivity: false # Scaffolds Cloud VPN/Interconnect placeholders for On-Prem/AWS
+  enable_scc_standard: true # ✅ FREE - Security Command Center (free tier)
+  enable_iap_access: true # ✅ FREE - Cloud IAP for Zero Trust SSH access
+  # ❌ PAID MODULES BELOW (DISABLED BY DEFAULT) - Set to true only if needed!
+  enable_cloud_nat: false # ❌ PAID ~$35/month - Outbound internet for private VMs
+  enable_hybrid_connectivity: false # ❌ PAID ~$0.05/hour - Cloud VPN/Interconnect scaffolding
+  enable_central_logging: false # ❌ PAID ~$7/month - BigQuery audit logs storage
+  enable_private_service_connect: false # ❌ PAID ~$50/month - Private API endpoints
+  enable_secret_manager: false # ❌ PAID ~$1/month - Secrets vault
 
+# ❌ PAID ADVANCED MODULES (DISABLED BY DEFAULT) - Set to true only if needed!
 advanced_modules:
-  enable_centralized_ingress: false # Chargeable global load balancer ingress scaffold
+  enable_centralized_ingress: false # ❌ PAID ~$18-50/month - Global load balancer ingress
+  enable_egress_inspection: false # ❌ PAID ~$0.025/GB - Egress inspection (DLP)
 
 enable_cicd_github: false
 
