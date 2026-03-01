@@ -1,0 +1,50 @@
+# Terraform files (temporary, shouldn't be committed)
+**/.terraform/
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/tfplan
+**/tfplan.json
+**/.terraform.tfvars
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS specific
+Thumbs.db
+.env
+.env.local
+
+# Credentials (NEVER commit)
+credentials.json
+service-account-key.json
+~/.config/gcloud/*
+
+# Logs
+*.log
+*.out
+
+# Build outputs
+dist/
+build/
+*.tar.gz
+
+# Temporary files
+*.tmp
+tmp/
+
+# State (critical - should use remote backend)
+*.tfstate
+*.tfstate.backup
+
+# Crash dumps
+crash.dump
+
+# Keep only example files
+!**/terraform.tfvars.example
+!**/example-*.tf
